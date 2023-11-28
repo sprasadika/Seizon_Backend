@@ -1,6 +1,18 @@
 class User {
-    constructor(username, firstName, lastName, user_language, height,
-        weight, age, gender, password, user_level, total_steps) {
+    constructor(
+        username,
+        firstName, 
+        lastName, 
+        email,
+        user_language, 
+        height,
+        weight,
+        age, 
+        gender, 
+        password, 
+        user_level, 
+        total_steps
+        ) {
 
             // Validation for username: Should be a non-empty string
             if (typeof username !== "string" || username.trim() === "") {
@@ -13,13 +25,18 @@ class User {
             if (typeof lastName !== "string") {
                 throw new Error("Last Name is required and must be a string.");
             }
-            // Validation for password: Should be a string with a minimum length
-            if (typeof password !== "string" || password.length < 6) {
-                throw new Error("Password must be a string with at least 6 characters.");
+
+            if (typeof email !== "string" || email.trim() === "") {
+                throw new Error("Username must be a non-empty string.");
             }
+            // Validation for password: Should be a string with a minimum length
+            // if (typeof password !== "string" || password.length < 6) {
+            //     throw new Error("Password must be a string with at least 6 characters.");
+            // }
             this.username = username;
             this.firstName = firstName;
             this.lastName = lastName;
+            this.email = email;
             this.user_language = user_language;
             this.height = height;
             this.weight = weight;
@@ -29,6 +46,9 @@ class User {
             this.user_level = user_level;
             this.total_steps = total_steps;
     }
+
 }
+
+
 
 module.exports = User;
